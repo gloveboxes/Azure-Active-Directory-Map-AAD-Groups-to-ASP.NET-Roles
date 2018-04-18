@@ -1,17 +1,13 @@
 ﻿using Microsoft.Azure.ActiveDirectory.GraphClient;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using Microsoft.IdentityModel.Protocols;
-using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
-using Microsoft.Owin.Security.Notifications;
 using Microsoft.Owin.Security.OpenIdConnect;
 using Owin;
 using PocADD.Models;
 using System;
 using System.Configuration;
 using System.Security.Claims;
-//using System.IdentityModel.Claims;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -54,7 +50,7 @@ namespace PocADD
                         AuthenticationResult result = await authContext.AcquireTokenByAuthorizationCodeAsync(context.Code,
                             new Uri(HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Path)), credential, graphResourceId);
 
-                        var claims = context.AuthenticationTicket.Identity as System.Security.Claims.ClaimsIdentity;
+                        var claims = context.AuthenticationTicket.Identity;
 
                         string tenantID = claims.FindFirst("http://schemas.microsoft.com/identity/claims/tenantid").Value;
 
