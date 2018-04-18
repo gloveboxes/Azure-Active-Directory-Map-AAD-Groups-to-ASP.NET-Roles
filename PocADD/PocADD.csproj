@@ -265,6 +265,7 @@
     <Content Include="Views\UserProfile\Relogin.cshtml" />
     <Content Include="Views\Error\Reauth.cshtml" />
     <Content Include="Views\Error\ShowError.cshtml" />
+    <Content Include="Web.config.backup" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
